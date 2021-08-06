@@ -24,7 +24,7 @@ public class RequestEvent {
         this.requestContext = requestContext;
 
         // /contextPath/togglz/index -> /index
-        String prefix = request.getContextPath() + request.getServletPath();
+        String prefix = request.getServletPath();
         path = request.getRequestURI()
             .substring(prefix.length())
             .replaceAll("(?i);jsessionid=[\\w\\.\\-]+", "");

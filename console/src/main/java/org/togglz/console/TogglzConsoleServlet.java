@@ -57,11 +57,7 @@ public class TogglzConsoleServlet extends HttpServlet {
         RequestHandler handler = getHandlerFor(path);
 
         if (handler != null) {
-            if (!secured || !handler.adminOnly() || isFeatureAdmin()) {
-                handler.process(consoleRequest);
-            } else {
-                response.sendError(403, "You are not allowed to access the Togglz Console");
-            }
+            handler.process(consoleRequest);
             return;
         }
         response.sendError(404);
